@@ -17,11 +17,11 @@ const url = config.mongoUrl;
 const connect = mongoose.connect(url, {
     useCreateIndex: true,
     useFindAndModify: false,
-    useNewUrlParser: true, 
+    useNewUrlParser: true,
     useUnifiedTopology: true
 });
 
-connect.then(() => console.log('Connected correctly to server'), 
+connect.then(() => console.log('Connected correctly to server'),
     err => console.log(err)
 );
 
@@ -38,10 +38,10 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(passport.initialize());
 
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/campsites', campsiteRouter);
 app.use('/promotions', promotionRouter);

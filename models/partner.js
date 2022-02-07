@@ -11,12 +11,17 @@ const partnerSchema = new Schema({
         required: true
     },
     featured: {
-        type: Boolean
+        type: Boolean,
+        default: false
+    },
+    description: {
+        type: String,
+        required: true
     }
-}, {
+},
+{
     timestamps: true
 });
-
 
 const Partner = mongoose.model('Partner', partnerSchema);
 

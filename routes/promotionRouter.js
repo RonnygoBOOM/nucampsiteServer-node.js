@@ -1,7 +1,8 @@
 const express = require('express');
-const promotionRouter = express.Router();
-const authenticate = require('../authenticate');
 const Promotion = require('../models/promotion');
+const authenticate = require('../authenticate');
+
+const promotionRouter = express.Router();
 
 promotionRouter.route('/')
 .get((req, res, next) => {
@@ -36,6 +37,7 @@ promotionRouter.route('/')
     })
     .catch(err => next(err));
 });
+
 promotionRouter.route('/:promotionId')
 .get((req, res, next) => {
     Promotion.findById(req.params.promotionId)

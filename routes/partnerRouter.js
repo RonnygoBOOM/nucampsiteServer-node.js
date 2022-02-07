@@ -1,7 +1,8 @@
 const express = require('express');
-const partnerRouter = express.Router();
-const authenticate = require('../authenticate');
 const Partner = require('../models/partner');
+const authenticate = require('../authenticate');
+
+const partnerRouter = express.Router();
 
 partnerRouter.route('/')
 .get((req, res, next) => {
@@ -36,6 +37,7 @@ partnerRouter.route('/')
     })
     .catch(err => next(err));
 });
+
 partnerRouter.route('/:partnerId')
 .get((req, res, next) => {
     Partner.findById(req.params.partnerId)
